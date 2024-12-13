@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="line">
+        <button onclick="PDF()">Imprimir</button>
+        <select id="roleSelect" onchange="toggleDivs()">
+            <option value="porteiro">Porteiro</option>
+            <option value="morador">Morador</option>
+        </select>
+    </div>
+
+    <div id="divPorteiro">
+        <h1>Questionario para os Porteiros</h1>
+        <ol>
+            <li>Qual é a eficiência dos métodos usados para a autenticação de pessoas aqui no condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito eficiente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Eficiente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Pouco eficiente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Ineficiente</button></li>
+            </ul>
+            <li>Acha que um sistema digital poderia melhorar a eficiência do seu trabalho?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sim</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Não</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Talvez</button></li>
+            </ul>
+            <li>Os equipamentos disponíveis (câmeras, interfone, rádios) funcionam corretamente?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sempre</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Geralmente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Raramente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Nunca</button></li>
+            </ul>
+            <li>Como você avalia a comunicação com a administração do condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito boa</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Boa</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Regular</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Ruim</button></li>
+            </ul>
+            <li>Os moradores tratam você com respeito durante as interações?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sim</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Às vezes</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Raramente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Nunca</button></li>
+            </ul>
+            <li>Você tem dificuldade em identificar visitantes ou veículos que acessam o condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sim</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Às vezes</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Raramente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Nunca</button></li>
+            </ul>
+            <li>Como você sugere melhorar os protocolos de segurança?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Melhor treinamento</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Mais câmeras de vigilância</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Registro eletrônico de visitantes</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Maior presença de seguranças</button></li>
+            </ul>
+            <li>Quais melhorias propões para a verificação e autenticação de moradores e visitas no condomínio Girassol?
+            </li>
+            <textarea></textarea>
+            <li>Como você atualmente regista a entrada e saída de visitas e moradores?</li>
+            <textarea></textarea>
+            <li>Quais dificuldades encontra no processo atual de registo de visitas?</li>
+            <textarea></textarea>
+            <li>Quais funcionalidades considera essencial em um sistema de gestão de residentes e vistas para um
+                condomínio?</li>
+            <textarea></textarea>
+            <li>Tem alguma sugestão adicional para melhorar a eficiência do controle de acesso no condomínio? Se sim
+                descreve – as.</li>
+            <textarea></textarea>
+            <li>Quais são os dados pessoais principais para o controle de acesso no condomínio?</li>
+            <textarea></textarea>
+        </ol>
+    </div>
+    <div id="divMorador">
+        <h1>Questionario para os Moradores</h1>
+        <ol>
+            <li>Com que frequência recebe visitas no condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Diariamente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Semanalmente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Mensalmente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Raramente</button></li>
+            </ul>
+            <li>Como avalias a atual gestão de residentes e visitas no condomínio Girassol?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Excelente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Boa</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Regular</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Mau</button></li>
+            </ul>
+            <li>Com que agilidade é feita a verificação e autorização de entrada no condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito rápido</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Rápido</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito lento</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Lento</button></li>
+            </ul>
+            <li>Com a atual gestão no condomínio te sentes seguro(a)?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sim</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Não</button></li>
+            </ul>
+            <li>Qual é a frequência de roubos e entradas não autorizadas no condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito frequente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Pouco frequente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Quase que nunca</button></li>
+            </ul>
+            <li>Implementar um aplicativo para verificação e autenticação (autorização de entrada) no condomínio seria:
+            </li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito bom</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Bom</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito mau</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Mau</button></li>
+            </ul>
+            <li>Qual é a tua experiência com meios tecnológicos como: smartphone, tablet e PC?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Excelente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Boa</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Normal</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Péssima</button></li>
+            </ul>
+            <li>Já houve discussão no condomínio devido à entrada de pessoas não autorizadas?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muitas vezes</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Algumas vezes</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Raramente</button></li>
+            </ul>
+            <li>Você acha que os sistemas de controle de acesso (portões, câmeras, etc.) são eficazes?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sim</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Não</button></li>
+            </ul>
+            <li>Como você prefere receber comunicados do condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) E-mail</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) WhatsApp</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Aplicativo próprio do condomínio</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Avisos físicos (murais ou
+                        correspondência)</button></li>
+            </ul>
+            <li>Como você considera a comunicação da administração?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito eficiente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Eficiente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Pouco eficiente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Ineficiente</button></li>
+            </ul>
+            <li>Você se sente informado sobre as decisões tomadas pela administração do condomínio?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sempre</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Às vezes</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Raramente</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Nunca</button></li>
+            </ul>
+            <li>Os canais de comunicação disponíveis (e-mail, WhatsApp, quadros de avisos) são suficientes para você?
+            </li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Sim</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Não</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Poderiam ser melhorados</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Não utilizo os canais oferecidos</button></li>
+            </ul>
+            <li>Você já precisou reportar algum problema técnico? Como avalia o tempo de resposta?</li>
+            <ul>
+                <li><button onclick="updateText(this)">(<span> </span>) Muito rápido</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Razoável</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Demorado</button></li>
+                <li><button onclick="updateText(this)">(<span> </span>) Nunca reportei</button></li>
+            </ul>
+            <li>Como é feita a marcação de visitas no condomínio?</li>
+            <textarea></textarea>
+            <li>Quais são os aspetos que podem ser melhorados no processo de entrada ao condomínio?</li>
+            <textarea></textarea>
+            <li>Quais são as dificuldades que os moradores enfrentam ao tentar entrar no condomínio?</li>
+            <textarea></textarea>
+            <li>Como é feita a comunicação entre a administração e os moradores?</li>
+            <textarea></textarea>
+        </ol>
+    </div>
+
+
+
+
+    <script>
+        function toggleDivs() {
+            const roleSelect = document.getElementById('roleSelect');
+            const divPorteiro = document.getElementById('divPorteiro');
+            const divMorador = document.getElementById('divMorador');
+
+            if (roleSelect.value === 'porteiro') {
+                divPorteiro.style.display = 'block';
+                divMorador.style.display = 'none';
+            } else if (roleSelect.value === 'morador') {
+                divPorteiro.style.display = 'none';
+                divMorador.style.display = 'block';
+            }
+        }
+
+        function updateText(element) {
+            // Remove 'x' de todos os spans dentro da ul pai
+            const buttons = element.parentElement.parentElement.querySelectorAll('button span');
+            buttons.forEach(span => {
+                span.textContent = '   ';
+            });
+
+            // Adiciona 'x' ao botão clicado
+            element.querySelector('span').textContent = ' x ';
+        }
+
+        function PDF() {
+            var line = document.querySelector('.line').style.display= 'none'
+            window.print();
+            window.location.reload();
+        }
+
+    </script>
+
+
+</html>
