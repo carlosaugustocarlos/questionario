@@ -28,8 +28,6 @@ function PDF() {
 
     window.print();
 
-    localStorage.setItem('pdfNumber', ++currentNumber);
-
-    window.location.reload();
+    localStorage.setItem('pdfNumber', ++currentNumber)
 }
     document.title = `questionario_${currentNumber}`;
