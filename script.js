@@ -22,9 +22,14 @@ function updateText(element) {
     // Adiciona 'x' ao botão clicado
     element.querySelector('span').textContent = ' x ';
 }
-
+let currentNumber = localStorage.getItem('pdfNumber') || 1;
 function PDF() {
-    var line = document.querySelector('.line').style.display = 'none'
+    var line = document.querySelector('.line').style.display = 'none';
+
     window.print();
+
+    localStorage.setItem('pdfNumber', ++currentNumber);
+
     window.location.reload();
 }
+    document.title = `questionario_${currentNumber}`;
