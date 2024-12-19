@@ -22,7 +22,7 @@ function updateText(element) {
     // Adiciona 'x' ao botão clicado
     element.querySelector('span').textContent = ' x ';
 }
-let currentNumber = localStorage.getItem('pdfNumber') || 1;
+let currentNumber = localStorage.getItem('pdfNumber') || 0;
 function PDF() {
     var line = document.querySelector('.line').style.display = 'none';
 
